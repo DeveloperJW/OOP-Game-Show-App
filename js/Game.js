@@ -3,7 +3,8 @@
 class Game{
     constructor(){
         this.missed=0;//number of missed guesses
-        this.phrases=[new Phrase("how are you"), new Phrase("hello"), new Phrase("you win")];//an array of phrases to use with the game
+        this.phrases=[new Phrase("how are you"), new Phrase("hello"), new Phrase("you win"),
+        new Phrase("treehouse"), new Phrase("javascript"), new Phrase("i love cat")];//an array of phrases to use with the game
     }
     getRandomPhrase(){
         const randomNum=Math.floor(Math.random()*this.phrases.length);
