@@ -17,23 +17,16 @@ class Game{
         this._randomPhrase=randomPhrase;
     }
     //this method checks to see if the button clicked by the player matches a letter in the phrase.
-    handleInteraction(item){
+    handleInteraction(letter){
         // if selected word matches, call the showMatchedLetter() method and call checkForWin()
         //if true show the letter onto the screen, else call removeLife()
-        let letter;
-        /*
-        use ternary operator to check if the type is string or button
-        if user trigger the event by clicking the button, we get the letter by .textContent
-        if user trigger the event by pressing keyboard, we use the key value as string
-        */
-        typeof item==='string'? letter= item: letter=item.textContent;
-        if (this.randomPhrase.checkLetter(letter)){
-            item.className+= ' chosen';// make the background color of correct choice purple
-            this.randomPhrase.showMatchedLetter(letter);
+        if (this.randomPhrase.checkLetter(letter.textContent)){
+            letter.className+= ' chosen';// make the background color of correct choice purple
+            this.randomPhrase.showMatchedLetter(letter.textContent);
             this.checkForWin();
         } else{
             // console.log(this.randomPhrase.phrase);//log the phrase to console to double check for development purpose
-            item.className+=' wrong';//make the background color of wrong choice orange
+            letter.className+=' wrong';//make the background color of wrong choice orange
             this.removeLife();
         }
     }//end of handleInteraction

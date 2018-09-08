@@ -4,6 +4,7 @@ let game=new Game();
 let resetButton=document.querySelector('#btn__reset');
 let overlay=document.querySelector('#overlay');
 let qwerty=document.getElementById('qwerty');
+let qwertyButtons=document.querySelectorAll('#qwerty button');
 //resetDisplay function hides the start screen overlay.
 const resetDisplay = () =>{
     overlay.className='start';
@@ -14,7 +15,6 @@ const resetDisplay = () =>{
 // It disables the button on the onscreen keyboard and calls the handleInteraction() method of the Game class.
 const markButton = (button) =>{
     button.disabled=true;
-    // button.className+=' chosen';
     //call handleInteraction() method of the Game.js
     game.handleInteraction(button);
 };
@@ -41,6 +41,11 @@ qwerty.addEventListener('click',(event)=>{
 window.addEventListener('keypress',(event)=>{
     // use regular expression to make sure only english letter will trigger the markButton()
    if (/^[a-zA-Z]+$/.test(event.key)){
-       markButton(event.key);
-   }
+       //use for loop and pass the button with event.key value to markButton
+       for (let i=0; i<qwertyButtons.length;i++){
+           if (qwertyButtons[i].textContent===event.key && qwertyButtons[i].disabled===false){
+               markButton(qwertyButtons[i]);
+           }
+       }//end of for loop
+   }//end of out if statement
 });
