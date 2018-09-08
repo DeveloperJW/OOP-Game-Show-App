@@ -13,6 +13,7 @@ const resetDisplay = () =>{
 // It disables the button on the onscreen keyboard and calls the handleInteraction() method of the Game class.
 const markButton = (button) =>{
     button.disabled=true;
+    // button.className+=' chosen';
     //call handleInteraction() method of the Game.js
     game.handleInteraction(button);
 };

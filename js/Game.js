@@ -28,10 +28,12 @@ class Game{
         */
         typeof item==='string'? letter= item: letter=item.textContent;
         if (this.randomPhrase.checkLetter(letter)){
+            item.className+= ' chosen';// make the background color of correct choice purple
             this.randomPhrase.showMatchedLetter(letter);
             this.checkForWin();
         } else{
             // console.log(this.randomPhrase.phrase);//log the phrase to console to double check for development purpose
+            item.className+=' wrong';//make the background color of wrong choice orange
             this.removeLife();
         }
     }//end of handleInteraction
@@ -88,6 +90,7 @@ class Game{
         let disabledButton= document.querySelectorAll('#qwerty button[disabled]');
         for (let i=0; i<disabledButton.length; i++){
             disabledButton[i].disabled=false;
+            disabledButton[i].className='key';
         }
         // next, reset all lives
         let scoreboard=document.querySelector('#scoreboard ol');
