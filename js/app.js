@@ -6,6 +6,7 @@ let overlay=document.querySelector('#overlay');
 let qwerty=document.getElementById('qwerty');
 //resetDisplay function hides the start screen overlay.
 const resetDisplay = () =>{
+    overlay.className='start';
     overlay.style.display = 'none';
 };
 

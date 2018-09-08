@@ -50,7 +50,8 @@ class Game{
 
     //this method checks to see if the player has selected all of the letters.
     checkForWin(){
-        const totalLetterLength= document.querySelectorAll('#phrase .letter').length;//all letters on screen
+        const totalLetterLength= document.querySelectorAll('#phrase .letter-multiple').length+
+            document.querySelectorAll('#phrase .letter').length;//all letters on screen
         const totalShownLength= document.querySelectorAll('#phrase .show').length;//total shown length
         if (totalLetterLength===totalShownLength){
             this.gameOver();
@@ -66,10 +67,12 @@ class Game{
             // player might win
             message.innerText= "You Win!";
             resetButton.innerText= "Play Again";
+            overlay.className='win';//change the background color
         } else{
             //player lose
             message.innerText="You Lose!";
-            resetButton.innerText= "Try Again"
+            resetButton.innerText= "Try Again";
+            overlay.className='lose';
         }
         this.resetGame();
 

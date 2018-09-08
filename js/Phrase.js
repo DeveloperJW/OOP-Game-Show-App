@@ -11,10 +11,14 @@ class Phrase{
         //first, generate the html of the content
         let contentHTMLFormat=`<ul>`;
         for (let i=0; i<this.phrase.length; i++){
-            if (this.phrase[i] !==" ") {
+            if (this.phrase[i] ===" ") {
+                contentHTMLFormat+=`<li class="hide space"> </li>`;
+                // contentHTMLFormat += `<li class="hide letter-multiple ${this.phrase[i]}">${this.phrase[i]}</li>`;
+            } else if (this.checkDuplication(this.phrase[i])){
+                // contentHTMLFormat+=`<li class="hide space"> </li>`;
                 contentHTMLFormat += `<li class="hide letter ${this.phrase[i]}">${this.phrase[i]}</li>`;
             } else{
-                contentHTMLFormat+=`<li class="hide space"> </li>`;
+                contentHTMLFormat += `<li class="hide letter-multiple ${this.phrase[i]}">${this.phrase[i]}</li>`;
             }
         }
         // use DOM to add content
@@ -42,4 +46,11 @@ class Phrase{
             }
         }//end of for loop
     }//end of showMatchedLetter method
+    /**
+     *
+     */
+    checkDuplication(letter){
+        let letters=this.phrase.split("");
+        return letters.indexOf(letter)===letters.lastIndexOf(letter);
+    }
 }
