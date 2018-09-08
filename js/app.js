@@ -20,10 +20,10 @@ const markButton = (button) =>{
 //Add an event listener to the "Start Game" button which calls the resetDisplay() function,
 // creates a new Game object, and starts the game.
 resetButton.addEventListener('click',()=>{
-    console.log('reset button clicked');
+    // console.log('reset button clicked');
     resetDisplay();
     //calls the resetDisplay() function, creates a new Game object, and starts the game.
-    // game=new Game();
+    game=new Game();
     game.startGame();
 });
 
@@ -31,8 +31,14 @@ resetButton.addEventListener('click',()=>{
 // so that clicking a button calls the markButton() function.
 qwerty.addEventListener('click',(event)=>{
     if (event.target.className==='key'){
-        console.log(event.target.textContent);
-        console.log('button '+event.target.textContent+' is clicked');
         markButton(event.target);
     }
+});
+
+//Extra Credit Part 1: Add keyboard functionality
+window.addEventListener('keypress',(event)=>{
+    // use regular expression to make sure only english letter will trigger the markButton()
+   if (/^[a-zA-Z]+$/.test(event.key)){
+       markButton(event.key);
+   }
 });
