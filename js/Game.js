@@ -34,8 +34,10 @@ class Game{
 
     //this method removes a life, removes a heart from the board, and, if the player is out of lives, ends the game.
     removeLife(){
-        let removeEl = document.querySelector('#scoreboard ol li');
-        removeEl.parentNode.removeChild(removeEl);
+        // let removeEl = document.querySelector('#scoreboard ol li');
+        // removeEl.parentNode.removeChild(removeEl);
+        let heartImg=document.querySelectorAll('#scoreboard img');
+        heartImg[this.missed].src="images/lostHeart.png";
         this.missed++;
         if (this.missed>=5){
             this.gameOver();
@@ -90,13 +92,7 @@ class Game{
             disabledButton[i].className='key';
         }
         // next, reset all lives
-        let scoreboard=document.querySelector('#scoreboard ol');
-        scoreboard.innerHTML= `
-<li class="tries"><img src="images/liveHeart.png" height="35px" widght="30px"></li>
-<li class="tries"><img src="images/liveHeart.png" height="35px" widght="30px"></li>
-<li class="tries"><img src="images/liveHeart.png" height="35px" widght="30px"></li>
-<li class="tries"><img src="images/liveHeart.png" height="35px" widght="30px"></li>
-<li class="tries"><img src="images/liveHeart.png" height="35px" widght="30px"></li>`;
+        document.querySelectorAll('#scoreboard img').forEach(item=>{item.src="images/liveHeart.png"});
     }
 
 }
