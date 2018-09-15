@@ -2,7 +2,12 @@
 
 - Purpose of this project: 
 
-  This project is created for the purpose of JavaScript Full Stack TechDegree - Unit 04 with TeamTreehouse. 
+  - This project is created for the purpose of JavaScript Full Stack TechDegree - Unit 04 with TeamTreehouse. 
+  
+  - The app is deployed to GitHub pages: 
+  
+    https://developerjw.github.io/OOP-Game-Show-App/
+  
   
 - Project Description:
   - Using JavaScript, you’ll create an array of phrases and create two JavaScript classes with specific
